@@ -207,6 +207,8 @@
 - 时间片ALOHA协议
     - 基本思想：把信道时间分成离散的时间片，片长为一个帧所需的发送时间，每个站点只能在时间片开始时才允许发送。其他过程与纯ALOHA协议相同
 
+![image.png](https://upload-images.jianshu.io/upload_images/5177180-10e84da89e5f96fb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 
 
 ### CSMA协议
@@ -271,8 +273,93 @@
 
 ### 令牌协议
 - 网络中流转着一个被 称为“令牌Token”的帧，一个节点要发送数据必须首先截获令牌，由于网络中只有一个令牌，从而不会产生冲突。
+![image.png](https://upload-images.jianshu.io/upload_images/5177180-d36c0ae7fef328e1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+### 集线器示意图  
+![image.png](https://upload-images.jianshu.io/upload_images/5177180-ad876b288bfa1476.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+### 传统以太网
+IEEE802.3和Ethernet
+- 发展历史
+  - ALOHA系统
+  - ALOHA+载波监听
+  - Xerox设计2.94Mbps的采用CSMA/CD协议的Ethernet
+  - Xerox，DEC,Intel共同制定了10Mbps的CSMA/CD以太网标准
+  - IEEE定义了采用1-坚持型CSMA/CD技术的802.3局域网标准，速率从1M到10Mbps，802.3标准与以太网协议略有差别。Ethernet和IEEE802.3的帧格式不同。
+
+### 网卡
+- 网络接口板又称为通信适配器（adapter）或网络接口卡NIC（Network  Interface Card）或网卡
+- 网卡的重要功能 
+   - 进行串行/并行转换
+   - 对数据进行缓存
+   - 在计算机的操作系统安装设备驱动程序
+   - 实现以太网协议
+
+### 网卡地址
+- 在局域网中，硬件又称为物理地址 或MAC地址、网上地址。
+- 802标准所说的“地址”严格地讲应当是每一个站的“名字”或标识符。
+- 地址类型
+   - 单播帧（一对一）
+   - 广播帧（一对全体）
+   - 多播帧（一对多）
+
+![image.png](https://upload-images.jianshu.io/upload_images/5177180-b1bfca89659d03d7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+### 网上连接  
+![image.png](https://upload-images.jianshu.io/upload_images/5177180-0e5e0d67c8f0cdcc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+### 网卡地址结构  
+![image.png](https://upload-images.jianshu.io/upload_images/5177180-9fbb42d2be24853b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+### 10BASE5连接示意  
+![image.png](https://upload-images.jianshu.io/upload_images/5177180-31c2f80c83059b0b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
+### 10BASE2连接示意  
+![image.png](https://upload-images.jianshu.io/upload_images/5177180-2ffe897a79af7e1e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+### 以太网最在作用距离   
+![image.png](https://upload-images.jianshu.io/upload_images/5177180-7c62b8c283cd6604.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+### 以太网冲突示意过程  
+![image.png](https://upload-images.jianshu.io/upload_images/5177180-da57036168fdd55a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+
+### 急用期   
+![image.png](https://upload-images.jianshu.io/upload_images/5177180-86d57bab25c92271.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+### 以太网急用期  
+![image.png](https://upload-images.jianshu.io/upload_images/5177180-ad0837f4e7c773bb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+### 二进制指数后退算法
+- 发生第一次冲突后，各个站点等待0或1个时槽再开始重传；
+- 发生第二次冲突后，各个站点随机地选择等待0，1，2或3个时槽再开始等一会； 
+- 第i次冲突后，再0至2<sup>i</sup>-1间随机地选择一个等待的时槽数，再开始等一会； 
+- 10次冲突后，选择等待时的时槽数回写在0至2<sup>10</sup>-1之间； 
+- 16次冲突后，发送失败，报告上层
+
+
+### 最短帧长
+- 如果发生冲突，就一定是在发送的前64字节之间； 
+- 由于一检测到冲突就立即中止发送，这时已经发送出去的数据一定小于64字节； 
+- 以太网规定了最短有效帧长为64字节，凡长度小于64字节的帧都是由于 冲突页异常中止的无效帧；
+
+### 以太网V2的MAC帧格式  
+![image.png](https://upload-images.jianshu.io/upload_images/5177180-5eba27e1c96fccc8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image.png](https://upload-images.jianshu.io/upload_images/5177180-1efa5bc9be485a65.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)  
+![image.png](https://upload-images.jianshu.io/upload_images/5177180-fbd362880211bafe.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+### MAC帧格式示意  
+![image.png](https://upload-images.jianshu.io/upload_images/5177180-5b7f83a6a686178e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+### 帧间最小间隔  
+![image.png](https://upload-images.jianshu.io/upload_images/5177180-1da7a9e3f58416c9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+### MAC帧格式
+- 以太网MAC帧格式有两种标准
+   - DIX Ethernet V2标准
+   - IEEE 的802.3标准
+- 最常用的MAC帧是以太网V2的格式
 
 ### 注意细节：
 |注意细节|
@@ -288,6 +375,9 @@
 |广域网比局域网要发展的早，原因是和计算机的发展有关，先有设备的发展再有网络的技术。第一个公用分组交换网是X.25网，当时速率64K，ARPANET最初的连接美国的东西海岸线路。80年代的微型机发展迅速，共享资源是产生局域网重要因素。当时局域网之间基本上是相对独立的，孤立的。  |
 |CSMA/CD冲突协议以及CSMA/CA冲突协议，这两种协议分别在CSMA的基础上增加了冲突检测和冲突避免机制，协议的具体实现将分别在以太网和无线网络中介绍  |
 |以太网使用坚持式CSMA协议  |
+|局域网最后一公里用的是双绞线|
+|局域网有一个重要特征：共享信息（共享单一信道）|
+|显示器、网卡、键盘、鼠标都需要驱动程序，现在一般都不需要手动安装。系统默认都安装了|
 
 
 
